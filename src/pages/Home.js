@@ -5,9 +5,11 @@ import axios from "axios";
 import './styles.css';
 import { FaUser } from 'react-icons/fa';
 import Loader from "../components/LoadingSpinner";
+import { Modal, Button } from "react-bootstrap";
 
 
-export default function Home() {
+
+export default function Home({ showConfirmation, confirmationMessage, setConfirmationMessage, setShowConfirmation }) {
     // create users state
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
@@ -24,11 +26,28 @@ export default function Home() {
                 console.log(error);
             });
     }, []);
-    useEffect(() => {
+    // runs when users are updated
+    useEffect(() => { }, [users]);
+
+    // conformation message  fucntion
+    function ConfirmationModal({ show, message, onHide }) {
+        return (
+            <Modal show={show} onHide={onHide} centered>
+                <Modal.Body>{message}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={onHide}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
 
 
-
-    }, [users]);
+    // cchange the state
+    function handleConfirmationClose() {
+        setShowConfirmation(false);
+    }
 
 
     // handle click for delete button
@@ -61,7 +80,8 @@ export default function Home() {
             );
 
         // console.log(tempemail);
-
+        setConfirmationMessage("User deleted successfully.");
+        setShowConfirmation(true);
 
     };
 
@@ -89,6 +109,11 @@ export default function Home() {
                             </div>
                         </div>
                     </nav>
+                    <ConfirmationModal
+                        show={showConfirmation}
+                        message={confirmationMessage}
+                        onHide={handleConfirmationClose}
+                    />
                     <div className="container flex-grow-1 my-5">
                         <div className="row">
                             {users.map((e, i) => {

@@ -25,8 +25,7 @@ export default function Edit() {
             })
             .catch(error => {
                 console.log(error);
-            }
-            );
+            });
     }
 
     return (
