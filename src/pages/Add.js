@@ -32,12 +32,14 @@ export default function Add() {
     return (
         <>
             <div className="d-flex flex-column align-items-center justify-content-center" style={{ height: "100vh" }}>
+
                 <div className="input-group mb-3 " style={{ maxWidth: "600px" }}>
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="inputGroup-sizing-default">name</span>
                     </div>
                     <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                         onChange={(e) => setUser(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && document.getElementById('createBtn').click()} // added this line
                     />
                 </div>
                 <div className="input-group mb-3" style={{ maxWidth: "600px" }}>
@@ -46,6 +48,7 @@ export default function Add() {
                     </div>
                     <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                         onChange={(e) => setUsername(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && document.getElementById('createBtn').click()} // added this line
                     />
                 </div>
                 <div className="input-group mb-3" style={{ maxWidth: "600px" }}>
@@ -54,13 +57,14 @@ export default function Add() {
                     </div>
                     <input type="text" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"
                         onChange={(e) => setEmail(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && document.getElementById('createBtn').click()} // added this line
                     />
                 </div>
-                <button type="button" className="btn btn-outline-success" onClick={handleCreateClick}>
+                <button type="button" className="btn btn-outline-success" onClick={handleCreateClick} id="createBtn">
                     create
                 </button>
             </div>
-
         </>
+
     )
 }
