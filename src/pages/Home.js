@@ -9,11 +9,14 @@ import { Modal, Button } from "react-bootstrap";
 
 
 
-export default function Home({ showConfirmation, confirmationMessage, setConfirmationMessage, setShowConfirmation }) {
+export default function Home() {
     // create users state
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
+    const [showConfirmation, setShowConfirmation] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState("");
+
 
     // on load get data of users and store it in users
     useEffect(() => {
