@@ -13,7 +13,7 @@ export default function Edit() {
 
     const handleCreateClick = () => {
 
-        axios.put('http://13.233.147.198:3000/api/user', {
+        axios.put('https://express-api-users-gbv8.onrender.com/api/user', {
             name: user,
             username: username,
             email: localStorage.getItem('email')

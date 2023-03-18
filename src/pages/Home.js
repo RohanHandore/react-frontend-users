@@ -20,7 +20,7 @@ export default function Home() {
 
     // on load get data of users and store it in users
     useEffect(() => {
-        axios.get('http://13.233.147.198:3000/api/user')
+        axios.get('https://express-api-users-gbv8.onrender.com/api/user')
             .then(response => {
                 setUsers(response.data.users);
                 setIsLoading(false);
@@ -67,7 +67,7 @@ export default function Home() {
         }
 
 
-        axios.delete('http://13.233.147.198:3000/api/user', { data })
+        axios.delete('https://express-api-users-gbv8.onrender.com/api/user', { data })
             .then(response => {
                 // console.log("erewerewrre", response.data.email);
 

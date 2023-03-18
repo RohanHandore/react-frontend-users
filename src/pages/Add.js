@@ -14,7 +14,7 @@ export default function Add() {
     const handleCreateClick = () => {
         console.log(user, username, email);
 
-        axios.post('http://13.233.147.198:3000/api/user', {
+        axios.post('https://express-api-users-gbv8.onrender.com/api/user', {
             name: user,
             username: username,
             email: email
