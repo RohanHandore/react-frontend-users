@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Add from './pages/Add';
 import Edit from './pages/Edit';
 import { useState } from 'react';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/add' element={<Add />} />
         <Route path='/edit' element={<Edit />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
